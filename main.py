@@ -1,25 +1,42 @@
-import turtle
+import random
 
-turtle.title("My Turtle Anim")
-turtle.setup(425,425, 0,0)
+TCOL =  '\033[33m' 
+TWHITE = '\033[37m'
 
-turtle.pencolor("#FF0000")
-turtle.fillcolor("#FF0000")
-turtle.begin_fill()
-turtle.forward(70)
-for i in range(4):
-  turtle.right(72)
-  turtle.forward(70)
-turtle.end_fill()
+def story1():
+ print('chose story 1');
+ name = input("Enter a Name:");
+ color = input("Pick a color, any color:");
+ animal = input("Pick a animal:");
+ place = input("Enter name of a place:");
+ print ("On one sunny day, " + TCOL + name + TWHITE + " went to the park to feed some ducks at the pond. Upon arriving at the pond, " + TCOL + name + TWHITE + " spotted a " + TCOL + color +  " " + TCOL + animal + TWHITE + ". " + TCOL + name + TWHITE + " never seen an animal like this before and wanted to go over and pet it. but the " + TCOL + animal + TWHITE + " got startled and fled to " + TCOL + place + TWHITE + " within seconds." + TWHITE )
+def story2():
+ print('chose story 2')
+ name = input("Enter a Name:");
+ namo = input("Input another name:");
+ place = input("Make up a name for a city:");
+ monster = input("Type of of mythical creature:");
+ print(TCOL + name + TWHITE +  " is a famous movie director. They're the one who made that amazing movie about the brave protagonist, " + TCOL + namo + TWHITE + ", defending the city of " + TCOL + place + TWHITE + " from the giant, terrifying " + TCOL + monster + TWHITE + "." + TWHITE)
 
-turtle.penup() #stop drawing
-turtle.goto(70, 90)
-turtle.pendown() #means start drawing again
+def randy():
+ print('randomized')
 
-turtle.pencolor("#0000FF")
-turtle.forward(1)
-for i in range(360):
-  turtle.right(1)
-  turtle.forward(1)
+def storypicker(sc):
+ if sc == "story 1":
+   story1()
+ elif sc == "story 2":
+   story2()
+ elif sc == "random":
+   randy()
+   rand = random.randint(1,2)
+   if rand == 1:
+     story1()
+   elif rand == 2:
+     story2()
 
-turtle.exitonclick()
+def main():
+  print("Welcome Player! Please pick a story by typing in story 1 or story 2 or random.");
+  Choice = input("Enter Here:");
+  storypicker(Choice)
+print (main())
+
